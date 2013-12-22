@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>ColorManager.js</title>
+	<script src="./js/isDefined.js"></script>
+	<script src="./js/zeroFill.js"></script>
+	<script src="./js/ColorManager.js"></script>
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+</head>
+<body>
+<div>
+	<div class="color_value">
+		R:<br />
+		<input type="range" value="0" max="255" min="0" /> <span>0</span>
+		<input type="hidden" value="red">
+	</div>
+	<div class="color_value">
+		G:<br />
+		<input type="range" value="0" max="255" min="0" /> <span>0</span>
+		<input type="hidden" value="green">
+	</div>
+	<div class="color_value">
+		B:<br />
+		<input type="range" value="0" max="255" min="0" /> <span>0</span>
+		<input type="hidden" value="blue">
+	</div>
+</div>
+<div id="color_view" style="min-width:50px; min-height:50px; background-color:#000; border:solid 1px;"></div>
+<script type="text/javascript">
+var color = new ColorManager();
+
+$('.color_value').on('change','input[type=range]', color_set);
+
+function color_set(event){
+	var current = $(this);
+	var value = current.val();
+	var type = current.siblings('input[type=hidden]').val();
+
+	current.siblings('span').html(value);
+
+	update_color_view(value, type);
+}
+
+function update_color_view(value, type){
+	color[type] = value;
+	$('#color_view').css("background-color", color.colorCode);
+}
+</script>
+</body>
+</html>
