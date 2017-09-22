@@ -16,5 +16,9 @@
     "url": "https://github.com/yajamon/ColorObject.js/issues"
   },
   "homepage": "https://github.com/yajamon/ColorObject.js#readme",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  }
 }
