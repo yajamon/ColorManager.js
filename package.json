@@ -4,6 +4,7 @@
   "description": "ColorManage.js",
   "main": "index.js",
   "scripts": {
+    "pretest": "tsc",
     "test": "mocha",
     "build": "tsc"
   },
